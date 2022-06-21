@@ -8,7 +8,14 @@ export const pokemonSlice = createSlice({
     isLoading: false,
   },
   reducers: {
-    increment: (state /* action */) => {},
+    startLoadingPokemon: (state /* action */) => {
+      state.isLoading = true;
+    },
+    setPokemon: (state, action) => {
+      state.isLoading = false;
+      state.page = action.payload.page;
+      state.pokemons = action.payload.pokemons;
+    },
   },
 });
-export const { increment } = pokemonSlice.actions;
+export const { startLoadingPokemon, setPokemon } = pokemonSlice.actions;
